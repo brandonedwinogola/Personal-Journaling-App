@@ -1,0 +1,273 @@
+:root {
+  --primary-color: rgb(11, 186, 245);
+  --error-color: #f70404;
+  --text-color: #131010;
+  --background-color: #121213;
+  --card-background: #fff;
+  --transition: all ease-in-out 0.3s;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card {
+  background: var(--card-background);
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 450px;
+  width: 90%;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.inputWrapper {
+  margin: 1rem auto;
+  width: 100%;
+}
+
+input:not([type='checkbox']), button {
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+input:not([type='checkbox']), textarea {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+input:not([type='checkbox']):focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+button {
+  appearance: none;
+  border: 1px solid var(--primary-color);
+  color: #fff;
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  padding: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+button.secondary {
+  color: var(--primary-color);
+  background-color: #fff;
+  border-color: #fff;
+}
+
+button:hover {
+  background-color: #fff;
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.error {
+  margin: 0;
+  margin-top: 0.2em;
+  font-size: 0.8em;
+  color: var(--error-color);
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.two-cols {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.two-cols .left {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.two-cols .right {
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  color: var(--text-color);
+}
+
+.title, .subtitle {
+  margin: 0;
+}
+
+.diary-tile {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  transition: var(--transition);
+}
+
+.diary-tile:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.editor {
+  height: 100%;
+  padding: 1em;
+}
+
+.editor input {
+  width: 100%;
+}
+
+.editor textarea {
+  width: 100%;
+  height: calc(100vh - 160px);
+}
+
+.entries ul {
+  list-style: none;
+  padding: 0;
+}
+
+.entries li {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.entries li:nth-child(even) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.entries li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.head {
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  letter-spacing: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+
+.github {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: all 1s;
+}
+
+.github > em {
+  padding: 5px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.github > a {
+  margin: 8px;
+  text-decoration: none;
+  color: var(--primary-color);
+  border-bottom: 1px solid cadetblue;
+  transition: var(--transition);
+}
+
+.github > a:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.repo {
+  transition: all 1s;
+}
+
+.repo:hover {
+  font-size: 1.5rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hoverGithub:hover {
+  animation-name: rotate;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .two-cols .left {
+    width: 25%;
+  }
+
+  .two-cols .right {
+    width: 75%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
